@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { questions } from "@/data/questions";
 
 export default function Home() {
+  const [hasStarted, setHasStarted] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const [score, setScore] = useState(0);
@@ -35,10 +37,17 @@ export default function Home() {
     setIsComplete(false);
   }
 
+  const header = (
+    <header className="site-header">
+      <Image className="header-logo" src="/weirdmal-logo.png" alt="WeirdMal" width={44} height={44} unoptimized />
+      <span>WEIRDMAL</span>
+    </header>
+  );
+
   if (isComplete) {
     return (
       <main className="page-shell">
-        <header className="site-header"><span className="logo-mark">W</span><span>WEIRDMAL</span></header>
+        {header}
         <section className="result-panel" aria-live="polite">
           <p className="eyebrow">TODAY&apos;S RESULT</p>
           <h1>{score}<span>/{questions.length}</span></h1>
@@ -51,8 +60,8 @@ export default function Home() {
 
   return (
     <main className="page-shell">
-      <header className="site-header"><span className="logo-mark">W</span><span>WEIRDMAL</span></header>
-      <section className="game" aria-live="polite">
+      {header}
+      <section className={`game ${hasStarted ? "" : "game-preview"}`} aria-live="polite" aria-hidden={!hasStarted}>
         <div className="game-meta">
           <span>QUESTION {questionIndex + 1} OF {questions.length}</span>
           <span>SCORE {score}</span>
@@ -82,6 +91,18 @@ export default function Home() {
           </div>
         )}
       </section>
+      {!hasStarted && (
+        <div className="welcome-backdrop">
+          <section className="welcome-modal" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+            <Image className="welcome-logo" src="/weirdmal-logo.png" alt="WeirdMal" width={116} height={116} priority unoptimized />
+            <p className="eyebrow">DAILY PREDICTION GAME</p>
+            <h1 id="welcome-title">What is normal?</h1>
+            <p className="welcome-copy">Choose what you think everyone else would call normal. Ten questions. One score.</p>
+            <button className="primary-button welcome-play-button" type="button" onClick={() => setHasStarted(true)}>Play today&apos;s game</button>
+            <button className="support-button" type="button" disabled>Support WeirdMal <span>Coming soon</span></button>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
