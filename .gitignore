@@ -6,4 +6,5 @@ out/
 *.tsbuildinfo
 .DS_Store
 starting_info.py
+PROJECT_PROGRESS.md
 .vscode
