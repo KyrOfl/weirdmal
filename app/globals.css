@@ -41,16 +41,10 @@ button {
   letter-spacing: 0.13em;
 }
 
-.logo-mark {
-  display: grid;
-  width: 29px;
-  aspect-ratio: 1;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--lime);
-  font-size: 0.95rem;
-  letter-spacing: 0;
+.header-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
 }
 
 .game,
@@ -58,6 +52,79 @@ button {
   max-width: 880px;
   margin: 40px auto 0;
   text-align: center;
+}
+
+.game-preview {
+  filter: blur(6px);
+  opacity: 0.32;
+  pointer-events: none;
+  user-select: none;
+}
+
+.welcome-backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(29 36 51 / 0.12);
+}
+
+.welcome-modal {
+  width: min(100%, 520px);
+  padding: 38px 34px 30px;
+  border: 2px solid var(--ink);
+  border-radius: 22px;
+  background: var(--paper);
+  box-shadow: 10px 12px 0 var(--ink);
+  text-align: center;
+}
+
+.welcome-logo {
+  width: 116px;
+  height: 116px;
+  border-radius: 18px;
+}
+
+.welcome-modal .eyebrow {
+  margin-top: 22px;
+}
+
+.welcome-modal h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+.welcome-copy {
+  max-width: 370px;
+  margin: 17px auto 25px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.welcome-play-button {
+  width: 100%;
+  padding: 15px 20px;
+}
+
+.support-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px 20px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.86rem;
+  cursor: not-allowed;
+}
+
+.support-button span {
+  margin-left: 6px;
+  color: #84901e;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .game-meta {
@@ -284,5 +351,9 @@ h1 {
   }
   .result-panel {
     padding: 44px 22px;
+  }
+  .welcome-modal {
+    padding: 31px 22px 22px;
+    box-shadow: 6px 7px 0 var(--ink);
   }
 }
