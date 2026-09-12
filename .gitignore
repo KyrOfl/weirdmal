@@ -6,3 +6,4 @@ out/
 *.tsbuildinfo
 .DS_Store
 starting_info.py
+.vscode
