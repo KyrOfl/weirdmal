@@ -95,6 +95,11 @@ button {
   font-size: clamp(2.5rem, 8vw, 4rem);
 }
 
+.result-modal h1 span {
+  font-size: 0.38em;
+  letter-spacing: -0.04em;
+}
+
 .welcome-copy {
   max-width: 370px;
   margin: 17px auto 25px;
@@ -106,6 +111,31 @@ button {
 .welcome-play-button {
   width: 100%;
   padding: 15px 20px;
+}
+
+.countdown-label {
+  margin: 28px 0 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.countdown {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 9vw, 4.4rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: bold;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.next-game-note {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
 }
 
 .support-button {
