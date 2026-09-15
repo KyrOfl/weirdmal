@@ -73,7 +73,7 @@ export default function Home() {
 
       if (storedCompletion) {
         try {
-          const parsedCompletion: unknown = JSON.parse(storedCompletion);
+          const parsedCompletion = JSON.parse(storedCompletion);
           if (
             typeof parsedCompletion === "object" &&
             parsedCompletion !== null &&
